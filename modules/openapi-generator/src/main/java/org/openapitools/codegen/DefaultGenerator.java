@@ -1278,6 +1278,7 @@ public class DefaultGenerator implements Generator {
     private Map<String, Object> processModels(CodegenConfig config, Map<String, Schema> definitions) {
         Map<String, Object> objs = new HashMap<>();
         objs.put("package", config.modelPackage());
+        LOGGER.info("Objs: \n" + objs);
         List<Object> models = new ArrayList<>();
         Set<String> allImports = new LinkedHashSet<>();
         for (Map.Entry<String, Schema> definitionsEntry : definitions.entrySet()) {
@@ -1287,7 +1288,7 @@ public class DefaultGenerator implements Generator {
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
             CodegenModel cm = config.fromModel(key, schema);
-            LOGGER.info("Codegen Model: " + cm);
+            LOGGER.info("Codegen Model: \n" + cm);
             Map<String, Object> mo = new HashMap<>();
             mo.put("model", cm);
             mo.put("importPath", config.toModelImport(cm.classname));
