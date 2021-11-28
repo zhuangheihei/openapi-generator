@@ -426,6 +426,9 @@ public class DefaultGenerator implements Generator {
             modelKeys = updatedKeys;
         }
 
+        LOGGER.info("############ modelsToGenerate ############");
+        Json.prettyPrint(modelsToGenerate);
+
         // store all processed models
         Map<String, Object> allProcessedModels = new TreeMap<>((o1, o2) -> ObjectUtils.compare(config.toModelName(o1), config.toModelName(o2)));
 
