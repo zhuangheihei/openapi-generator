@@ -533,6 +533,8 @@ public class DefaultGenerator implements Generator {
                             continue;  // Don't create user-defined classes for aliases
                         }
                     }
+                    LOGGER.info("############ Model Template ############");
+                    Json.prettyPrint(modelTemplate);
                     allModels.add(modelTemplate);
                 }
 
