@@ -1283,9 +1283,11 @@ public class DefaultGenerator implements Generator {
         for (Map.Entry<String, Schema> definitionsEntry : definitions.entrySet()) {
             String key = definitionsEntry.getKey();
             Schema schema = definitionsEntry.getValue();
+            LOGGER.info("Model schema: " + schema);
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
             CodegenModel cm = config.fromModel(key, schema);
+            LOGGER.info("Codegen Model: " + cm);
             Map<String, Object> mo = new HashMap<>();
             mo.put("model", cm);
             mo.put("importPath", config.toModelImport(cm.classname));
