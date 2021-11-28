@@ -507,6 +507,8 @@ public class DefaultGenerator implements Generator {
 
         // loop through all models to update children models, isSelfReference, isCircularReference, etc
         allProcessedModels = config.updateAllModels(allProcessedModels);
+        LOGGER.info("############ allProcessedModels ############");
+        Json.prettyPrint(allProcessedModels);
 
         // post process all processed models
         allProcessedModels = config.postProcessAllModels(allProcessedModels);
@@ -533,8 +535,8 @@ public class DefaultGenerator implements Generator {
                             continue;  // Don't create user-defined classes for aliases
                         }
                     }
-                    LOGGER.info("############ Model Template ############");
-                    Json.prettyPrint(modelTemplate);
+//                    LOGGER.info("############ Model Template ############");
+//                    Json.prettyPrint(modelTemplate);
                     allModels.add(modelTemplate);
                 }
 
