@@ -1278,17 +1278,17 @@ public class DefaultGenerator implements Generator {
     private Map<String, Object> processModels(CodegenConfig config, Map<String, Schema> definitions) {
         Map<String, Object> objs = new HashMap<>();
         objs.put("package", config.modelPackage());
-        LOGGER.debug("Objs: \n" + objs);
+        LOGGER.info("Objs: \n" + objs);
         List<Object> models = new ArrayList<>();
         Set<String> allImports = new LinkedHashSet<>();
         for (Map.Entry<String, Schema> definitionsEntry : definitions.entrySet()) {
             String key = definitionsEntry.getKey();
             Schema schema = definitionsEntry.getValue();
-            LOGGER.debug("Model schema: " + schema);
+            LOGGER.info("Model key:" + key + " | Model schema: " + schema);
             if (schema == null)
                 throw new RuntimeException("schema cannot be null in processModels");
             CodegenModel cm = config.fromModel(key, schema);
-            LOGGER.debug("Codegen Model: \n" + cm);
+            LOGGER.info("Codegen Model: \n" + cm);
             Map<String, Object> mo = new HashMap<>();
             mo.put("model", cm);
             mo.put("importPath", config.toModelImport(cm.classname));
