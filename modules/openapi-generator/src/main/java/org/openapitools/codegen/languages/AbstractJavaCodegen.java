@@ -1195,6 +1195,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         if (codegenModel.description != null) {
             codegenModel.imports.add("ApiModel");
         }
+//        LOGGER.info("codegenModel: " + codegenModel);
         if (codegenModel.discriminator != null && additionalProperties.containsKey(JACKSON)) {
             codegenModel.imports.add("JsonSubTypes");
             codegenModel.imports.add("JsonTypeInfo");

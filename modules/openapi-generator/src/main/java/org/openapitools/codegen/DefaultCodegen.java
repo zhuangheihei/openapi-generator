@@ -2588,6 +2588,7 @@ public class DefaultCodegen implements CodegenConfig {
             addAdditionPropertiesToCodeGenModel(m, schema);
         }
         // process 'additionalProperties'
+        LOGGER.info("Schema in updateModelForObject() method: " + schema.toString());
         setAddProps(schema, m);
     }
 
@@ -2679,6 +2680,8 @@ public class DefaultCodegen implements CodegenConfig {
         if (!ModelUtils.isArraySchema(schema)) {
             m.dataType = getSchemaType(schema);
         }
+        LOGGER.info("Current model datatype: " + m.dataType);
+        LOGGER.info("Current model name: " + m.name);
         if (!ModelUtils.isAnyType(schema) && Boolean.TRUE.equals(schema.getNullable())) {
             m.isNullable = Boolean.TRUE;
         }
@@ -2686,6 +2689,7 @@ public class DefaultCodegen implements CodegenConfig {
         m.setTypeProperties(schema);
         m.setComposedSchemas(getComposedSchemas(schema));
         if (ModelUtils.isArraySchema(schema)) {
+            LOGGER.info("Current schema is array schema");
             CodegenProperty arrayProperty = fromProperty(name, schema);
             m.setItems(arrayProperty.items);
             m.arrayModelType = arrayProperty.complexType;
@@ -2724,6 +2728,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (ModelUtils.isAnyType(schema)) {
             updateModelForAnyType(m, schema);
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
+            LOGGER.info("Current schema is a object");
             updateModelForObject(m, schema);
         } else if (!ModelUtils.isNullType(schema)) {
             // referenced models here, component that refs another component which is a model
@@ -2784,6 +2789,8 @@ public class DefaultCodegen implements CodegenConfig {
                 postProcessModelProperty(m, prop);
             }
         }
+        LOGGER.info("Current model datatype: " + m.dataType);
+        LOGGER.info("Current model name: " + m.name);
         return m;
     }
 
