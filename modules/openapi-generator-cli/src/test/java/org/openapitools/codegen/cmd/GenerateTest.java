@@ -434,6 +434,7 @@ public class GenerateTest {
     }
 
     /**
+     * CS427 Issue link https://github.com/OpenAPITools/openapi-generator/issues/10321
      * This test ensures that when the
      */
     @Test(expectedExceptions = SpecValidationException.class)
