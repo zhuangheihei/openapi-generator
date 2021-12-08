@@ -535,6 +535,7 @@ public class CodegenConfigurator {
             Set<String> warnings = new HashSet<>();
             if (specification != null) {
 
+                // CS427 Issue link https://github.com/OpenAPITools/openapi-generator/issues/10321
                 // Wrap the getUnusedSchemas() in try catch block so it catches the NPE
                 // when the input spec file is not correct
                 try{
