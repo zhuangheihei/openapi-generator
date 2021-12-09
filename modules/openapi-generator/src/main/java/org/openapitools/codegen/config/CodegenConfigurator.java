@@ -477,6 +477,10 @@ public class CodegenConfigurator {
         return this;
     }
 
+    /*
+     * Converts the input file into Specification Context
+     * @return
+     */
     @SuppressWarnings("WeakerAccess")
     public Context<?> toContext() {
         Validate.notEmpty(generatorName, "generator name must be specified");
